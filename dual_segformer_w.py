@@ -158,7 +158,6 @@ class Attention(nn.Module):
         # B N C -> B N num_head C//num_head -> B C//num_head N num_heads
         q = self.q(x).reshape(B, N, self.num_heads, C // self.num_heads).permute(0, 2, 1, 3)
 
-        """不使用sr_ratio"""
         if self.sr_ratio > 100000:
             x_ = x.permute(0, 2, 1).reshape(B, C, H, W)
             x_ = self.sr(x_).reshape(B, C, -1).permute(0, 2, 1)
@@ -226,7 +225,6 @@ class Block(nn.Module):
         attn_window = self.attn(x_window, window_size, window_size)
         window_x = window_reverse(attn_window, window_size=window_size, H=H, W=W)
         x = x + self.drop_path(window_x)
-        """不加window"""
         # x = x + self.drop_path(self.attn(self.norm1(x), H, W))
 
         x = x + self.drop_path(self.mlp(self.norm2(x), H, W))
