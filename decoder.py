@@ -5,11 +5,6 @@ import torch.nn.functional as F
 
 
 class DecoderBlock(nn.Module):
-    """
-    1. 转置矩阵：通道变为一半，shape变为2倍   对应图中的up-conv 2x2
-    2. 通道调整
-    3. 普通卷积操作
-    """
 
     def __init__(self, in_channels, out_channels, up_in_channel, up_channel):
         super().__init__()
@@ -38,7 +33,6 @@ class DecoderBlock(nn.Module):
 
 class CenterBlock(nn.Sequential):
     """
-    功能是实现Unet最下面一层的512-1024-1024
     """
 
     def __init__(self, in_channel, out_channel):
@@ -56,7 +50,6 @@ class CenterBlock(nn.Sequential):
 
 class UnetDecoder(nn.Module):
     """
-    拼接各个部分
     """
 
     def __init__(self, encoder_channels):
