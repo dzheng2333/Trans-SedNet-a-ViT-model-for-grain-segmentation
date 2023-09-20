@@ -13,9 +13,6 @@ except:
 
 class new_CMX(nn.Module):
     """
-    连接encoder和decoder
-    实现分割头 segmentation_head
-    上采样到原输入的大小
     """
 
     def __init__(self, classes=10, backbone='cmx-b0', pretrained=False):
