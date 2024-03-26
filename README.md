@@ -8,4 +8,4 @@ The Trans-SedNet is a ViT model that is designed for grain segmentation in geolo
 - 'dual_segformer_w' is the backbone dual-modal SegFormer ViT model with window-attention.
 - We also provide an example image dataset in 'dataset' folder in which one pair of XPL and PPL thin section images and their segmentation label are included. 
 
-The code is owned by Dongyu Zheng and Li Hou of Chengdu University of Technology, please feel free to contact both authors for further information. 
+The code is owned by Dongyu Zheng and Li Hou of Chengdu University of Technology, please feel free to contact the authors for further information. 
